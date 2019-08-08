@@ -28,6 +28,6 @@
         border: 1px solid #eee;
         height: 40px;
         font-size: 20px;
-        margin-bottom: 50px;
+        margin-bottom: 20px;
     }
 </style>

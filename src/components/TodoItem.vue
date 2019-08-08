@@ -1,6 +1,6 @@
 <template>
-    <div class="todo-item">
-        <div class="todo-item-select" :class="{'selected':todo.isComplate}"  @click="complateEvent($event)"></div>
+    <div class="todo-item" @click="complateEvent($event)">
+        <div class="todo-item-select" :class="{'selected':todo.isComplate}"  ></div>
         <div class="todo-item-show-area" :class="{'complate-color':todo.isComplate}">
             {{todo.name}}
             <div class="todo-item-complate-line" v-if="todo.isComplate"></div>
@@ -8,9 +8,7 @@
         
         
     </div>
-    
 </template>
-
 <script>
     import { Todo } from "@/model/Todo.js";
     export default {
@@ -31,6 +29,10 @@
         methods:{
             complateEvent(e){
                this.todo.isComplate=!this.todo.isComplate;
+               setTimeout(() => {
+                this.$emit('updateTodo',this.todo);    
+               }, 500);
+               
             },
         }
         
